@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Pyscript</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <py-env>
+        - numpy
+        - matplotlib
+    </py-env>
+
+</head>
+
+<body>
+    <div id="plot"></div>
+
+    <py-script out="plot">
+import matplotlib.pyplot as plt 
+import numpy as np 
+
+np.random.seed(42)
+rv = np.random.standard_normal(1000)
+
+fig, ax = plt.subplots()
+ax.hist(rv, bins=30)
+fig
+    </py-script>
+</body>
+</html>

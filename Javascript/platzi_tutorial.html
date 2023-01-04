@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> mi primer proyecto </title>
+        <script type="text/javascript">
+
+async function traerPais()
+{
+    const respuesta = await fetch("https://api.nationalize.io/?pollos?name=julian");
+    if (!respuesta.OK)
+    {
+        let error = "404 no se encontro la ruta";
+        alert(error);
+        throw new Error (error)
+
+    }
+    const nombre = respuesta.json();
+    return nombre
+}
+function mostrarNombre(n)
+{
+    document.getElementById("mensaje").innerHTML = n.country[0].country_id;
+}
+
+traerPais().then(mostrarNombre);
+
+        </script>
+    </head>
+    <body>
+        <h1>Título de mi proyecto</h1>
+        <p>Este es mi primer proyecto en JS</p>
+        <p id="mensaje">Cargando...</p>
+        <script type="text/javascript">
+            mostrarNombre("Cambio de Nombre");
+        </script>
+    </body>
+</html>
